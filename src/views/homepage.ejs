@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard-Blooms School System</title>
+
+    <!-- Tailwind CSS Link (ensure the path to the CSS is correct) -->
+    <link rel="stylesheet" href="/output.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+
+
+    <!-- Header Section -->
+    <header class="bg-blue-700 text-shadow text-white  py-2 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-extrabold text-center tracking-wide uppercase">
+                Blooms School System
+            </h1>
+            <p class="text-center text-lg mt-2">"Where Education Blooms"</p>
+        </div>
+    </header>
+
+    <!-- Include the navbar partial -->
+    <%- include('partials/navbar.ejs') %>
+
+
+<div class="container pt-2 bg-gradient-to-b from-blue-50 to-gray-100 min-h-screen min-w-full">
+
+    <!-- Welcome Section -->
+    <section class="container mx-auto mt-5 text-center">
+        <h2 class="text-3xl font-bold mb-3">Welcome to Blooms School System</h2>
+    </section>
+    
+    
+    <div class="p-6 bg-gray-100 min-h-screen">
+        <h1 class="text-2xl font-bold mb-3 text-center">Student Management Dashboard</h1>
+
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+            
+                <!-- Active vs Inactive Chart -->
+                <div class="bg-white shadow rounded-lg p-6 w-full max-w-lg">
+                    <h2 class="text-lg font-semibold mb-4 text-center">Student Status</h2>
+                    <canvas id="activeInactiveChart" width="300" height="300"></canvas>
+                </div>
+
+                <!-- Fees Collected Chart -->
+                <div class="bg-white shadow rounded-lg p-6 max-w-lg mx-auto">
+                    <h2 class="text-lg font-semibold mb-4">Fees Collected Over Time</h2>
+                    <div class="flex gap-4 mb-4">
+                        <div>
+                            <label for="startDate" class="block text-sm font-medium">Start Date</label>
+                            <input id="startDate" class="w-full border border-gray-300 rounded py-2 px-3 text-sm"
+                            type="date">
+                        </div>
+                        <div>
+                            <label for="endDate" class="block text-sm font-medium">End Date</label>
+                            <input id="endDate" class="w-full border border-gray-300 rounded py-2 px-3 text-sm"
+                                type="date">
+                        </div>
+                        <div class="flex items-end">
+                            <button id="updateDate" class="bg-blue-500 text-white px-4 py-2 rounded shadow">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                    <canvas id="feesChart" width="300" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./script/dashBoard.js"></script>
+<!-- navbar script-->
+<script src="./script/navbar.js"></script>
+
+    </html>

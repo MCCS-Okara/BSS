@@ -1,0 +1,65 @@
+<nav class="bg-white shadow-md">
+    <div class="container mx-auto flex flex-col md:flex-row justify-center items-center md:space-x-8 space-y-4 md:space-y-0">
+        <!-- Dashboard -->
+        <a href="/" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            </svg>
+            Dashboard
+        </a>
+        
+        <!-- Add Student -->
+        <a href="/addnewstudent" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+            Add Student
+        </a>
+
+        <!-- Dropdown: Student Records -->
+        <div class="relative" role="menu">
+            <button id="studentRecordsDropdownButton" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+                Student Records
+            </button>
+            <!-- Dropdown menu -->
+            <div id="studentRecordsDropdownMenu" class="absolute hidden bg-white shadow-md rounded-md mt-1 w-48 z-10">
+                <a href="/studentrecord" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 text-sm rounded-md">Student Personal Data</a>
+                <a href="/studentFeeRecordsById" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 text-sm rounded-md">Fee Records</a>
+            </div>
+        </div>
+
+        <!-- Dropdown: Receive Fee -->
+        <div class="relative" role="menu">
+            <button id="feeDropdownButton" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2zM12 14c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2zM12 20c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2z"/>
+                </svg>
+                Receive Fee
+            </button>
+            <!-- Dropdown menu -->
+            <div id="feeDropdownMenu" class="absolute hidden bg-white shadow-md rounded-md mt-1 w-48 z-10">
+                <a href="/receiveFullFee" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 text-sm rounded-md">Receive Full Fee</a>
+                <a href="/receivePartialFee" class="block text-gray-700 hover:bg-gray-200 px-4 py-2 text-sm rounded-md">Receive Partial/Month Fee</a>
+            </div>
+        </div>  
+
+        <!-- Additional Expense -->
+        <a href="/additionalExpances" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            Add Additional Expense
+        </a>
+
+        <!-- Fee Voucher -->
+        <a href="/feeVoucher" class="text-gray-700 hover:bg-gray-200 hover:scale-105 transition duration-200 px-4 py-2 rounded-md font-bold text-sm flex items-center focus:outline-none focus:ring-2 focus:ring-gray-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M12 16v.01"/>
+            </svg>
+            Fee Voucher
+        </a>
+    </div>
+</nav>

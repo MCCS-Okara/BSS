@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Vouchers-Blooms School System</title>
+    <!-- Tailwind CSS Link (ensure the path to the CSS is correct) -->
+    <link rel="stylesheet" href="/output.css">
+    <style>
+        .text-xxs { 
+            font-size: 10px;
+        }
+        @media print {
+  .break-after-page {
+    break-after: page;
+  }
+}
+    </style>
+</head>
+<body>
+<!-- Header Section -->
+<header class="bg-blue-700 text-shadow text-white  py-2 shadow-md">
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-extrabold text-center tracking-wide uppercase">
+          Print Vouchers
+        </h1>
+    </div>
+</header>
+
+<!-- Include the navbar partial -->
+<%- include('partials/navbar.ejs') %>
+ <!-- Custom Alert Modal -->
+ <div id="customAlert" class="custom-alert hidden">
+  <div class="custom-alert-content">
+      <p id="alertMessage"></p>
+      <button onclick="closeAlert()">OK</button>
+  </div>
+</div>
+  <!-- Filters Section -->
+  <div class="m-6 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-2">
+    <div>
+        <label for="registrationNo" class="block text-sm font-medium text-gray-700">Registration No</label>
+        <input type="text" id="registrationNo" autocomplete="off" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Enter Registration No">
+    </div>
+
+    <div>
+        <form>
+          <div>
+            <label for="class" class="block text-sm font-medium text-gray-700">Class</label>
+            <select id="class" name="class" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+              <option value="" disabled selected>Select a Class</option>
+              <option value="Nursery">Nursery</option>
+              <option value="Prep">Prep</option>
+              <option value="Playgroup">PlayGroup</option>
+              <option value="1">Class 1</option>
+              <option value="2">Class 2</option>
+              <option value="3">Class 3</option>
+              <option value="4">Class 4</option>
+              <option value="5">Class 5</option>
+              <option value="6">Class 6</option>
+              <option value="7">Class 7</option>
+              <option value="8">Class 8</option>
+              <option value="9">Class 9</option>
+              <option value="Matric">Class 10</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+</div>
+
+<div class="mb-4 text-center">
+    <button id="printFilter" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow">Search</button>
+</div>
+<div hidden >
+<div id="allVoucherContainer" class="grid grid-cols-1 text-xxs  border-b border-t py-1"></div>
+</div>    
+<script src="script/feeVoucher.js"></script>
+  <!-- navbar script-->
+    <script src="./script/navbar.js"></script>
+</body>
+</html>

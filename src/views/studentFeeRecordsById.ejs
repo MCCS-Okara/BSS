@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records-Blooms School System</title>
+    
+    <!-- Tailwind CSS link -->
+    <link rel="stylesheet" href="/output.css">
+    <link rel="stylesheet" href="alert.css">
+</head>
+<body class="pt-2 bg-gradient-to-b from-gray-50 to-gray-400 min-h-screen min-w-full  text-gray-800">
+
+    <header class="bg-blue-700 text-shadow text-white  py-2 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-extrabold text-center uppercase">
+                Students Records
+            </h1>
+        </div>
+    </header>
+
+    <!-- Include Navigation Bar -->
+    <%- include('partials/navbar.ejs') %>
+
+  <!-- Custom Alert Modal -->
+  <div id="customAlert" class="custom-alert hidden">
+    <div class="custom-alert-content">
+        <p id="alertMessage"></p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+</div>
+
+    <!-- Student Records Section -->
+    <div class="container pt-4 mx-auto">
+        <!-- Student Records Section -->
+    <!-- Student Records Section -->
+    <section class="container mx-auto p-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <a href="/studentFeeRecordsByID" class="bg-blue-500 text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-blue-400 transition-shadow shadow-md hover:shadow-lg">
+                Fee by ID
+            </a>
+            <a href="/feeByMonth" class="bg-blue-500 text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-blue-400 transition-shadow shadow-md hover:shadow-lg">
+                Fee by Month
+            </a>
+            <a href="/feeByAmount" class="bg-blue-500 text-white py-3 px-4 rounded-lg font-medium text-center hover:bg-blue-400 transition-shadow shadow-md hover:shadow-lg">
+                Fee by Amount
+            </a>
+        </div>
+    </section>
+
+<!-- Filters Section -->
+<div>
+    <label for="registrationNo" class="block text-sm font-medium text-gray-700">Registration No</label>
+    <input type="text" id="registrationNo" autocomplete="off" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Enter Registration No">
+</div>
+
+<div class="my-4 text-center">
+    <button id="filter" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow">Filter</button>
+</div>
+
+       
+<div id="pendingFeeHeading" class="my-4 text-lg font-bold" hidden>
+    Total Pending Fee: <span id="totalPendingFee" class="text-red-500">00</span>
+</div>
+<div id="advanceFeeHeading" class="my-4 text-lg font-bold " hidden>
+    Advance Fee: <span id="advanceFee" class="text-red-500"></span>
+</div>
+
+<div class="overflow-x-auto my-8"> <!-- Adjusted spacing here -->
+    <table id="feeRecords" class="min-w-full bg-white shadow-lg rounded-lg text-sm">
+      <!-- Applied text-sm for font size -->
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="px-4 py-2 text-sm">Month</th>
+          <th class="px-4 py-2 text-sm">Year</th>
+          <th class="px-4 py-2 text-sm">Fee Amount</th>
+          <th class="px-4 py-2 text-sm">Paid Fee Amount</th>
+          <th class="px-4 py-2 text-sm">Status</th>
+          <th class="px-4 py-2 text-sm">Payment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    <script src="script/studentFeeRecords.js"></script>
+    <!-- navbar script-->
+    <script src="./script/navbar.js"></script>
+</body>
+</body>
+</html>

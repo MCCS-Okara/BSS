@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student-Blooms School System</title>
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/output.css"> <!-- Adjust path for public folder -->
+    <link rel="stylesheet" href="/alert.css">
+</head>
+
+<body class=" text-gray-800 bg-gradient-to-b from-blue-50 to-blue-100">
+
+    <header class="bg-blue-700 text-shadow text-white  py-2 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-extrabold text-center uppercase">
+                Add New Student
+            </h1>
+        </div>
+    </header>
+
+
+    <!-- Include Navigation Bar -->
+    <%- include('partials/navbar.ejs') %>
+        <div class="container pt-2  min-w-full">
+            <h2 class="text-2xl font-bold text-center mb-6">Enter Student Details</h2>
+
+            <!-- Custom Alert Modal -->
+            <div id="customAlert" class="custom-alert hidden">
+                <div class="custom-alert-content">
+                    <p id="alertMessage"></p>
+                    <button onclick="closeAlert()">OK</button>
+                </div>
+            </div>
+
+            <!-- Add Student Form -->
+            <form id="student-form" class="w-full max-w-[80%] mx-auto bg-white p-8 rounded-lg shadow-md" method="POST"
+                action="/api/students" enctype="multipart/form-data">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+                    <!-- File Input -->
+                <div class="sm:col-span-2 flex flex-col items-center gap-4">
+                    <label for="photo" class="cursor-pointer bg-blue-100 hover:bg-blue-200 text-blue-700 font-semibold py-2 px-4 rounded-lg border-dashed border-2 border-blue-300 transition-all text-center">
+                        Upload Photo
+                        <input type="file" id="photo" name="photo" accept="image/*" class="hidden" onchange="previewImage(event)">
+                    </label>
+                    <div class="mt-2 w-24 h-24">
+                        <img id="imagePreview" src="/profile.jpg" class="w-full h-full object-cover rounded-full border border-gray-300 shadow-md">
+                    </div>
+                </div>
+                <!-- name input -->
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-bold mb-2">Name:</label>
+                        <input type="text" id="name" name="name" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Enter Student Name"
+                            required oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="fatherName" class="block text-sm font-bold mb-2">Father's Name:</label>
+                        <input type="text" id="fatherName" name="fatherName" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Enter Father's Name"
+                            required oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="cnic" class="block text-sm font-bold mb-2">Mother's/Father's CNIC</label>
+                        <input type="text" id="cnic" name="cnic" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="12345-1234567-1"
+                            pattern="\d{5}-\d{7}-\d{1}" title="CNIC must be in the format 12345-1234567-1" required oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="contact1" class="block text-sm font-bold mb-2">Contact No 1</label>
+                        <input type="text" id="contact1" name="contact1" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="0300-6964321" oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="contact2" class="block text-sm font-bold mb-2">Contact No 2</label>
+                        <input type="text" id="contact2" name="contact2" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="35303-0847161-1" oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="className" class="block text-sm font-bold mb-2">Class:</label>
+                        <select id="className" name="className"
+                            class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="handleInput(event)">
+                            <option value="" disabled selected>Select a Class</option>
+                            <option value="Nursery">Nursery</option>
+                            <option value="Prep">Prep</option>
+                            <option value="Playgroup">PlayGroup</option>
+                            <option value="1">Class 1</option>
+                            <option value="2">Class 2</option>
+                            <option value="3">Class 3</option>
+                            <option value="4">Class 4</option>
+                            <option value="5">Class 5</option>
+                            <option value="6">Class 6</option>
+                            <option value="7">Class 7</option>
+                            <option value="8">Class 8</option>
+                            <option value="9">Class 9</option>
+                            <option value="Matric">Class 10</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="campusName" class="block text-sm font-bold mb-2">Campus Name</label>
+                        <input type="text" id="campusName" name="campusName"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Enter Campus Name"
+                            required oninput="handleInput(event)">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="dateOfAdmission" class="block text-sm font-bold mb-2">Date Of Admission</label>
+                        <input type="date" id="dateOfAdmission" name="dateOfAdmission"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" required oninput="handleInput(event)">
+                    </div>
+                    <!-- for family number  or name  -->
+                    <div class="mb-4">
+                        <label for="familyName" class="block text-sm font-bold mb-2">Family Name</label>
+                        <input type="text" id="familyName" name="familyName" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" " required oninput="handleInput(event)"> 
+                    </div>
+
+                    <div class=" mb-4">
+                        <label for="admissionFee" class="block text-sm font-bold mb-2">Admission Fee </label>
+                        <input type="number" id="admissionFee" name="admissionFee" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="00" required oninput="handleInput(event)">
+                    </div>
+                    <div class="mb-4">
+                        <label for="monthlyFee" class="block text-sm font-bold mb-2">Monthly Fee</label>
+                        <input type="number" id="monthlyFee" name="monthlyFee" autocomplete="off"
+                            class="w-full border border-gray-300 rounded py-2 px-3 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="00" required oninput="handleInput(event)">
+                    </div>
+
+                    <!-- Previous Pending Fee Section -->
+                    <div class=" sm:col-span-2 mb-4">
+                        <h3 class="text-lg font-bold mb-4">Previous Pending Fees (Optional)</h3>
+                        <div id="previousFeesContainer">
+                            <!-- This is where the dynamic previous fee fields will go -->
+                        </div>
+
+                        <!-- Button to add previous fee -->
+                        <button type="button" onclick="addPreviousFeeFields()"
+                            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                            Add Previous Fee
+                        </button>
+
+                        <button type="button" id="deleteFeeBtn" onclick="removeLatestPreviousFeeField()"
+                            class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                            style="display: none;"> Delete Fee
+                        </button>
+                    </div>
+                </div>
+
+        </div>
+
+
+        <button id="submitButton" type="submit"
+            class="bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold rounded-lg hover:from-green-500 hover:to-green-700 mt-8 mb-4 py-2 px-4 mx-auto block">Add
+            Student</button>
+        </form>
+       
+        </div>
+    </body>
+    <script src="./script/validations.js"></script>
+    <script src="script/addnewstudent.js"></script>
+    <!-- navbar script-->
+    <script src="./script/navbar.js"></script>
+
+</html>

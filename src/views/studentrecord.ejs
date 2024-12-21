@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Records-Blooms School System</title>
+    
+    <!-- Tailwind CSS link -->
+    <link rel="stylesheet" href="/output.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="bg-blue-700 text-shadow text-white  py-2 shadow-md">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-extrabold text-center uppercase">
+                Students Records
+            </h1> 
+        </div>
+    </header>
+
+    <!-- Include Navigation Bar -->
+    <%- include('partials/navbar.ejs') %>
+
+    <!-- Student Records Section -->
+    <div class="container mx-auto mt-4 p-2">
+        <h2 class="text-2xl font-bold text-center mb-4">Student Records</h2>
+
+
+<!-- Filters Section -->
+<div id="searchOptions" class="mb-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div>
+        <label for="cnic" class="block text-sm font-medium text-gray-700">Father's/Mother's ID</label>
+        <input type="text" id="cnic" autocomplete="off" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="12345-6789101-1" oninput="handleInput(event)">
+    </div>
+    <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+        <input type="text" id="name" autocomplete="off" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="Enter Name" oninput="handleInput(event)">
+    </div>
+    <div>
+        <label for="contact" class="block text-sm font-medium text-gray-700">Contact</label>
+        <input type="text" id="contact" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" placeholder="0300-2964827" oninput="handleInput(event)">
+    </div>
+    <div>
+        <label for="class" class="block text-sm font-medium text-gray-700">Class</label>
+        <select  id="class" name="class" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" oninput="handleInput(event)">
+            <option value="" disabled selected>Select a Class</option>
+            <option value="Nursery">Nursery</option>
+            <option value="Prep">Prep</option>
+            <option value="Playgroup">PlayGroup</option>
+            <option value="1">Class 1</option>
+            <option value="2">Class 2</option>
+            <option value="3">Class 3</option>
+            <option value="4">Class 4</option>
+            <option value="5">Class 5</option>
+            <option value="6">Class 6</option>
+            <option value="7">Class 7</option>
+            <option value="8">Class 8</option>
+            <option value="9">Class 9</option>
+            <option value="Matric">Class 10</option>
+          </select>
+    </div>
+</div>
+
+<div class="mb-2 text-center">
+    <button id="filter" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded shadow">Filter</button>
+</div>
+
+<!-- display total,active inactive students  -->
+<div id="totalActiveInactiveStudents" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-gray-100" >
+    <!-- Total Students -->
+    <div id="totalStudents" class="bg-gradient-to-r from-green-400 to-green-600 text-white font-bold text-lg text-center rounded-lg shadow-lg py-6 px-6 hover:shadow-2xl transition transform hover:scale-105">
+     Total Students 0
+    </div>
+  
+    <!-- Active Students -->
+    <div id="activeStudents" class="bg-gradient-to-r from-blue-400 to-blue-600 text-white font-bold text-lg text-center rounded-lg shadow-lg py-6 px-6 hover:shadow-2xl transition transform hover:scale-105">
+      Active Students 0
+    </div>
+  
+    <!-- Inactive Students -->
+    <div id="inactiveStudents" class="bg-gradient-to-r from-red-400 to-red-600 text-white font-bold text-lg text-center rounded-lg shadow-lg py-6 px-6 hover:shadow-2xl transition transform hover:scale-105">
+      Inactive Students 0
+    </div>
+  </div>
+
+  
+    <div id="forRecord" ></div>
+    <script src="./script/validations.js"></script>
+    <script src="script/studentrecord.js"></script>
+    <!-- navbar script-->
+    <script src="./script/navbar.js"></script>
+</body>
+</body>
+</html>
